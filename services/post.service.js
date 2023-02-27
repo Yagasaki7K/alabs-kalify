@@ -4,7 +4,6 @@ import {
     getDocs,
     getDoc,
     addDoc,
-    updateDoc,
     deleteDoc,
     doc,
 } from "firebase/firestore";
@@ -12,25 +11,25 @@ import {
 const postCollectionRef = collection(database, "posts");
 
 class postService {
-    addposts = (newPosts) => {
+    addPost = (newPosts) => {
         return addDoc(postCollectionRef, newPosts);
     };
 
-    updateposts = (id, updateDoc) => {
+    updatePost = (id, updateDoc) => {
         const postDoc = doc(database, "posts", id);
         return updateDoc(postDoc, updateDoc);
     };
 
-    deleteposts = (id) => {
+    deletePost = (id) => {
         const postDoc = doc(database, "posts", id);
         return deleteDoc(postDoc);
     };
 
-    getAllposts = () => {
+    getAllPosts = () => {
         return getDocs(postCollectionRef);
     };
 
-    getpost = (id) => {
+    getPost = (id) => {
         const postDoc = doc(database, "posts", id);
         return getDoc(postDoc);
     };

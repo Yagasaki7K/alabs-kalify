@@ -18,16 +18,16 @@ const MarkdownEditor = dynamic(
 );
 
 const Login = () => {
-    const [Author, setAuthor] = useState('')
-    const [Title, setTitle] = useState('')
-    const [Description, setDescription] = useState('')
-    const [Image, setImage] = useState('')
-    const [Citation, setCitation] = useState('')
-    const [LinkCitation, setLinkCitation] = useState('')
-    const [Ytid, setYtid] = useState('')
+    const [author, setAuthor] = useState('')
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [image, setImage] = useState('')
+    const [citation, setCitation] = useState('')
+    const [linkCitation, setLinkCitation] = useState('')
+    const [ytid, setYtid] = useState('')
 
     const [isLogged, setIsLogged] = useState(false)
-    const [value, setValue] = useState('# Corpo da Publicação')
+    const [bodyPost, setBodyPost] = useState('# Corpo da Publicação')
     const Lgn = SoreyeAsuka
     const Pswd = EVA02
 
@@ -42,10 +42,48 @@ const Login = () => {
         }
     }
 
-    function sendDataFirebase() {
-        alert('Publicação criada com sucesso')
-        window.location.reload()
+    async function sendData(){
+        const NewPosts = {
+            author,
+            title,
+            description,
+            bodyPost,
+            image: image.name,
+            citation,
+            linkCitation,
+            ytid,
+        }
+
+            if (!author || !title || !description || !image) {
+                alert('Por favor, preencha todos os campos')
+            } else {
+            await (postService.addPost(NewPosts))
+
+            const storageRef = ref(storage, `/files/${Image.name}`)
+            const uploadTask = uploadBytesResumable(storageRef, Image)
+
+            uploadTask.on(
+                "state_changed",
+                (snapshot) => {
+                    const percent = Math.round(
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                    )
+                    console.log(percent)
+                    /* show upload percentage? */
+                },
+                (error) => console.log(error),
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then((url) =>{
+                        console.log(url)
+                    })
+                }
+            )
+
+                alert('Publicação criada com sucesso')
+                location.assign("/posts")
+            }
     }
+
 
     function collectData() {
         const formAuthor = document.getElementById('author')
@@ -77,51 +115,6 @@ const Login = () => {
         setImage(event.target.files[0]);
     }
 
-    function sendData(){
-        if (!Author || !Title || !Description || !Image) {
-            alert('Por favor, preencha todos os campos')
-        }else{
-            async function addToFirebase() {
-                const NewPosts = {
-                    Author: Author,
-                    Title: Title,
-                    Description: Description,
-                    Image: Image.name,
-                    Citation: Citation,
-                    LinkCitation: LinkCitation,
-                    Ytid: Ytid
-                }
-
-                await (postService.addpost(NewPosts))
-                function Redirect() {
-                    location.assign("/posts")
-                }
-                Redirect()
-            }
-            addToFirebase()
-
-            const storageRef = ref(storage, `/files/${Image.name}`)
-            const uploadTask = uploadBytesResumable(storageRef, Image)
-
-            uploadTask.on(
-                "state_changed",
-                (snapshot) => {
-                    const percent = Math.round(
-                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                    )
-                    
-                    /* show upload percentage? */
-                },
-                (error) => console.log(error),
-                () => {
-                    getDownloadURL(uploadTask.snapshot.ref).then((url) =>{
-                        console.log(url)
-                    })
-                }
-            )
-        }
-    }
-
     if (isLogged === true) {
         return (
             <DashboardDetails>
@@ -137,7 +130,7 @@ const Login = () => {
                                 <div className="item">
                                     <label htmlFor="author">Autor*: </label>
                                     <select id="author">
-                                        <option value={"Anderson 'Yagasaki' Marlon"}>Anderson "Yagasaki" Marlon</option>
+                                        <option value={"Anderson 'Yagasaki' Marlon"}>Anderson Marlon</option>
                                     </select>
                                 </div>
 
@@ -159,7 +152,7 @@ const Login = () => {
 
                                 <div className="item-markdown">
                                     <label htmlFor="body">Conteúdo da Publicação*: </label>
-                                    <MarkdownEditor height={300} value={value} onChange={setValue} />
+                                    <MarkdownEditor height={300} value={bodyPost} onChange={setBodyPost} />
                                 </div>
 
                                 <div className="item">
@@ -204,8 +197,7 @@ const Login = () => {
                     </form>
                 </div>
             </LoginDetails>
-        )
+        )}
     }
-}
 
 export default Login
