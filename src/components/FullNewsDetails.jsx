@@ -31,7 +31,7 @@ const FullNewsDetails = styled.div `
         @media (max-width: 1366px) {
             margin-left: 10rem;
         }
-
+        
 
         a {
             padding: 20px 80px 70px 40px;
@@ -55,7 +55,7 @@ const FullNewsDetails = styled.div `
                 margin-left: 22rem;
             }
         }
-
+        
     }
 `
 export default FullNewsDetails

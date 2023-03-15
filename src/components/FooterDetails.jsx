@@ -8,7 +8,7 @@ const FooterDetails = styled.div`
         justify-content: center;
         align-items: center;
         margin: 1rem 0 2rem 0;
-
+        
         img {
             width: 30rem;
         }

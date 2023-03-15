@@ -14,7 +14,7 @@ const TecnologiesDetails = styled.div`
         @media (max-width: 1366px) {
             margin-left: -9rem;
         }
-
+        
         .header {
             border-bottom: 2px solid ${colors.blue};
             width: 63rem;
@@ -36,7 +36,7 @@ const TecnologiesDetails = styled.div`
         .content, .secondContent, .thirdContent {
             display: flex;
             margin-left: -1rem;
-
+                
             a {
                 text-decoration: none;
                 color: ${colors.white};

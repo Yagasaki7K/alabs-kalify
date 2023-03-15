@@ -1,10 +1,14 @@
 import styled from 'styled-components'
 import colors from './Colors'
 
-const CategoriesDetails = styled.div`
+const CategoriesDetails = styled.div `
     display: flex;
     justify-content: center;
     padding: 30px 20rem;
+
+    @media (max-width: 1366px) {
+        margin-top: 1rem;
+    }
 
     .animes, .games {
         width: 9.2rem;
@@ -50,11 +54,6 @@ const CategoriesDetails = styled.div`
             h1 {
                 width: 22rem;
                 color: ${colors.blue};
-                display: -webkit-box;
-                -webkit-line-clamp: 3; /** número de linhas que você quer exibir */
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-overflow: ellipsis;
             }
         }
 
@@ -66,14 +65,8 @@ const CategoriesDetails = styled.div`
             }
 
             p {
-                max-width: 22rem;
-                max-height: 5rem;
-                color: ${colors.graydark};
-                display: -webkit-box;
-                -webkit-line-clamp: 3; /** número de linhas que você quer exibir */
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                width: 22rem;
+                color: ${colors.graydark}
             }
         }
 
@@ -89,18 +82,13 @@ const CategoriesDetails = styled.div`
                 .post-side {
                     h3 {
                         margin-left: 5rem;
-                        margin-top: -4.5rem;
+                        margin-top: -4.2rem;
                         margin-bottom: 5px;
                         width: 18rem;
                         font-weight: 600;
                         font-size: 16px;
                         text-transform: initial;
                         line-height: 20px;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
                     }
 
                     color: ${colors.text};
@@ -125,7 +113,6 @@ const CategoriesDetails = styled.div`
             }
         }
     }
-
 `
 
 export default CategoriesDetails

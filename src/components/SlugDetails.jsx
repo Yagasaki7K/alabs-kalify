@@ -20,14 +20,14 @@ const SlugDetails = styled.div `
         @media (max-width: 1440px) {
             margin-left: 14rem;
         }
-
+        
         @media (max-width: 1366px) {
             margin-left: 12rem;
         }
-
+        
         margin-bottom: 5rem;
         background: ${colors.whitelight};
-
+    
         h1 {
             margin-top: -1rem;
             color: ${colors.blue};
