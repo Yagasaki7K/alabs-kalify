@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { colors } from './variables';
 
 const DashboardDetails = styled.div`
     display: flex;
-    background: #1d1e26;
+    background: ${colors.blackdark};
 
     .content {
         display: flex;
@@ -10,11 +11,11 @@ const DashboardDetails = styled.div`
         width: 100%;
         padding: 0 20px;
         margin-bottom: 1rem;
-        background: #1d1e26;
+        background: ${colors.blackdark};
         font-family: 'Poppins', sans-serif;
 
         h1 {
-            color: #fff;
+            color: ${colors.white};
         }
 
         .publi {
@@ -28,9 +29,9 @@ const DashboardDetails = styled.div`
                 margin-top: 1rem;
 
                 input, textarea, select, option {
-                    background: #1d1e26;
-                    border: 1px solid #fff;
-                    color: #fff;
+                    background: ${colors.blackdark};
+                    border: 1px solid ${colors.white};
+                    color: ${colors.white};
                     padding: 0.5rem;
                     border-radius: 5px;
                     margin-top: 10px;
@@ -63,29 +64,30 @@ const DashboardDetails = styled.div`
             button {
                 margin-top: 1rem;
                 padding: 0.5rem;
-                border: 1px solid #fff;
+                border: 1px solid ${colors.white}};
                 border-radius: 5px;
-                background: #1d1e26;
-                color: #fff;
+                background: ${colors.blackdark};
+                color: ${colors.white};
                 cursor: pointer;
                 margin-right: 1rem;
             }
 
             .sendbtn {
-                background: green;
+                background: ${colors.green};
                 border: none;
                 padding: 0.8rem;
             }
 
             .clrbtn {
-                background: red;
+                background: ${colors.red};
+                border: none;
+                padding: 0.8rem;
             }
         }
 
         .stats {
             display: none;
         }
-    }
 `
 
 export default DashboardDetails

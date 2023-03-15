@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import colors from './Colors'
+import { colors } from './variables'
 
 const FooterDetails = styled.div`
 
@@ -8,7 +8,7 @@ const FooterDetails = styled.div`
         justify-content: center;
         align-items: center;
         margin: 1rem 0 2rem 0;
-        
+
         img {
             width: 30rem;
         }
@@ -16,7 +16,7 @@ const FooterDetails = styled.div`
 
     .footer {
         width: 100%;
-        background: #1d1e26;
+        background: ${colors.blackdark}};
         color: ${colors.white};
         display: flex;
         padding: .5rem 0;
@@ -26,7 +26,7 @@ const FooterDetails = styled.div`
             text-decoration: none;
             color: ${colors.white};
         }
-    }
+
 `
 
 export default FooterDetails

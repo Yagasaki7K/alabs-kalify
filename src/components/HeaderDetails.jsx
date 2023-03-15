@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import colors from './Colors'
+import { device, colors } from './variables'
 
 const HeaderDetails = styled.div`
 
@@ -8,20 +8,20 @@ const HeaderDetails = styled.div`
         padding: 1rem 15rem;
         justify-content: space-between;
 
-        @media (max-width: 1600px) {
+        @media (${device.desktopS}) {
             padding: 1rem 6rem;
         }
 
-        @media (max-width: 1440px) {
+        @media (${device.laptopL}) {
             padding: 1rem 4rem;
         }
 
-        @media (max-width: 1366px) {
+        @media (${device.laptopM}) {
             padding: 1rem 3rem;
         }
 
 
-        @media (max-width: 1024px) {
+        @media (${device.laptopS}) {
             .advice {
                 display: none;
             }
@@ -36,7 +36,7 @@ const HeaderDetails = styled.div`
             }
         }
     }
-    
+
     .navigation {
         background: ${colors.blue};
         display: flex;
@@ -48,7 +48,7 @@ const HeaderDetails = styled.div`
             border-radius: 15px;
             background: transparent;
         }
-        
+
         ul {
             display: flex;
             list-style: none;
@@ -88,7 +88,7 @@ const HeaderDetails = styled.div`
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
-                
+
                 width: 100%;
                 border-radius: 15px;
 
@@ -100,7 +100,7 @@ const HeaderDetails = styled.div`
             li {
                 display: flex;
                 padding: 0.7rem 1rem;
-                
+
 
                 @media (max-width: 768px) {
                     margin-left: 0.625rem;
@@ -111,7 +111,7 @@ const HeaderDetails = styled.div`
                     margin-left: 2rem;
                     padding: 0.7rem 0;
                 }
-                
+
                 margin: 0;
                 font-size: 1rem;
                 font-weight: 400;
@@ -127,10 +127,10 @@ const HeaderDetails = styled.div`
 
                 :hover {
                     border-bottom: 4px solid ${colors.white};
-                    
+
                     @media (max-width: 600px) {
                         background: ${colors.blue};
-                        
+
                         :hover {
                             text-decoration: underline;
                         }

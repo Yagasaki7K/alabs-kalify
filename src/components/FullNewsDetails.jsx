@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { colors, device } from './variables'
 
-const FullNewsDetails = styled.div `
+const FullNewsDetails = styled.div`
     .fullnews {
         display: flex;
         justify-content: center;
@@ -16,8 +17,8 @@ const FullNewsDetails = styled.div `
             text-transform: uppercase;
             font-weight: 600;
             font-size: 1.2rem;
-            background-color: #01acfe;
-            color: #e5e5e5;
+            background-color: ${colors.blue}};
+            color: ${colors.graylight};
             border: none;
             margin-bottom: 2rem;
             cursor: pointer;
@@ -28,10 +29,10 @@ const FullNewsDetails = styled.div `
             }
         }
 
-        @media (max-width: 1366px) {
+        @media (${device.laptopM}) {
             margin-left: 10rem;
         }
-        
+
 
         a {
             padding: 20px 80px 70px 40px;
@@ -40,7 +41,7 @@ const FullNewsDetails = styled.div `
             :hover {
                 transition: 1s;
                 transform: scale(1.05);
-                background: #2f2f2f;
+                background: ${colors.blacklight};
             }
 
             img {
@@ -55,7 +56,5 @@ const FullNewsDetails = styled.div `
                 margin-left: 22rem;
             }
         }
-        
-    }
 `
 export default FullNewsDetails

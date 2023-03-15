@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import colors from './Colors'
+import { device, colors } from './variables'
 
-const CategoriesDetails = styled.div `
+const CategoriesDetails = styled.div`
     display: flex;
     justify-content: center;
     padding: 30px 20rem;
 
-    @media (max-width: 1366px) {
+    @media (${device.laptopM}) {
         margin-top: 1rem;
     }
 

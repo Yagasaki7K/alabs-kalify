@@ -58,7 +58,7 @@ const Categories = () => {
                                             <hr />
                                         </div>
                                     </a>
-                                </div>
+                                </div> 
                             ) : (
                                 null
                             )
@@ -106,7 +106,7 @@ const Categories = () => {
                                             <hr />
                                         </div>
                                     </a>
-                                </div>
+                                </div> 
                             ) : (
                                 null
                             )
@@ -117,7 +117,7 @@ const Categories = () => {
 
             <div className="secondCategories">
                 <div className="header">
-                    <p className="movies">&nbsp;&nbsp;Filmes {`&`} Séries</p>
+                    <p  className="movies">&nbsp;&nbsp;Filmes {`&`} Séries</p>
                 </div>
 
                 {
@@ -154,7 +154,7 @@ const Categories = () => {
                                             <hr />
                                         </div>
                                     </a>
-                                </div>
+                                </div> 
                             ) : (
                                 null
                             )

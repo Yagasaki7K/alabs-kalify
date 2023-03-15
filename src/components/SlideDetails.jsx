@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import colors from './Colors'
+import { device, colors } from './variables'
 
-const SlideDetails = styled.div `
+const SlideDetails = styled.div`
     .keen-slider {
         width: 100%;
         height: 40rem;
 
-        @media (max-width: 1366px) {
+        @media (${device.laptopM}) {
             height: 30rem;
         }
 

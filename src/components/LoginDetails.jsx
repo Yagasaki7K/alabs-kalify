@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colors, device } from './variables'
 
 const LoginDetails = styled.div`
     background: url(https://images.unsplash.com/photo-1569701813229-33284b643e3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=914&q=80);
@@ -8,20 +9,20 @@ const LoginDetails = styled.div`
     height: 100vh;
     display: flex;
     overflow-y: hidden;
-    
+
     .container {
         height: 100vh;
         width: 100vw;
         margin-top: 15rem;
         margin-left: 47rem;
 
-        @media (max-width: 1366px) {
+        @media (${device.laptopM}) {
             margin-top: 9rem;
             margin-left: 30rem;
         }
 
-        color: #fff;
-        
+        color: ${colors.white};
+
         img {
             width: 22rem;
             margin-bottom: 3rem;
@@ -36,8 +37,8 @@ const LoginDetails = styled.div`
             width: 25rem;
             padding: 3rem;
             border-radius: 15px;
-            background: #1d1e26;
-            color: #000;
+            background: ${colors.blackdark}};
+            color: ${colors.black};
 
             input {
                 margin-bottom: 1rem;
@@ -46,7 +47,7 @@ const LoginDetails = styled.div`
                 font-size: 1rem;
                 border-radius: 5px;
                 border: none;
-                background: #e8f0fe;
+                background: ${colors.graylight};
 
                 :focus {
                     outline: none;
@@ -54,8 +55,8 @@ const LoginDetails = styled.div`
             }
 
             button {
-                color: #fff;
-                background: #00acff;
+                color: ${colors.white};
+                background: ${colors.blue};
                 border-radius: 5px;
                 border: none;
                 margin-top: 1rem;
@@ -72,7 +73,6 @@ const LoginDetails = styled.div`
                 }
             }
         }
-    }
 `
 
 export default LoginDetails
