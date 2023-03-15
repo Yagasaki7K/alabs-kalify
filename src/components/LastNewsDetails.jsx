@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import colors from './Colors'
+import { screenSize, device } from './Breakpoints'
 
 const TecnologiesDetails = styled.div`
     display: flex;
@@ -11,7 +12,7 @@ const TecnologiesDetails = styled.div`
     .tecnologies {
         margin-left: -8rem;
 
-        @media (max-width: 1366px) {
+        @media (${device.laptop}) {
             margin-left: -9rem;
         }
         
@@ -19,7 +20,7 @@ const TecnologiesDetails = styled.div`
             border-bottom: 2px solid ${colors.blue};
             width: 63rem;
 
-            @media (max-width: 1366px) {
+            @media (${device.laptop}) {
                 width: 71rem;
             }
 
@@ -48,8 +49,8 @@ const TecnologiesDetails = styled.div`
                     height: 12rem;
                     padding: 0;
                     object-fit: cover;
-
-                    @media (max-width: 1366px) {
+                    
+                    @media (${device.laptop}) {
                         width: 17rem;
                     }
                 }
@@ -68,6 +69,11 @@ const TecnologiesDetails = styled.div`
                         margin-top: -2rem;
                         font-size: 1.2rem;
                         margin-bottom: 0rem;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
 
                     i {

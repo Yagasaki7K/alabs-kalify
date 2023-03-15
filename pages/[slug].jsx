@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router'
-import Head from 'next/head'
 
 import Header from '../src/components/Header'
 import Footer from '../src/components/Footer'
 import SlugDetails from '../src/components/SlugDetails'
+import OwnHead from '../src/components/OwnHead'
+import SEO from '../src/SEO'
 
 export async function getStaticProps() {
     const response = await fetch('https://raw.githubusercontent.com/Yagasaki7K/website-onigirihardcore/main/server/index.json')
@@ -28,15 +29,15 @@ export async function getStaticPaths() {
     }
 }
 
-// Test using Localhost || Hidde getStaticPaths and getStaticProps and props inside on Post
-// import data from '../server/index.json'
-
 const Post = ({ data }) => {
     const router = useRouter()
     const { slug } = router.query
 
+    const title = 'Onigiri Hardcore | '
+
     return (
         <>
+
             <Header />
 
             <SlugDetails>
@@ -44,29 +45,12 @@ const Post = ({ data }) => {
                     data && data.map((post, index) => (
                         post.slug === slug ? (
                             <div key={index}>
-                                <Head>
-                                    <title>{post.title}</title>
-                                    <meta name="author" content='Anderson "Yagasaki" Marlon' />
-                                    <meta name="description" content={post.description} />
-                                    <meta property="og:title" content={post.title} />
-                                    <meta property="og:description" content={post.description} />
-                                    <meta property="og:site_name" content="Anderson Marlon // Software Developer" />
-                                    <meta property="og:url" content="https://yagasaki.vercel.app/" />
-                                    <meta property="og:image" content={post.image} />
-                                    <meta property="og:type" content="Website" />
-                                    <meta property="og:image:width" content="1200" />
-                                    <meta property="og:image:height" content="627" />
-                                    <meta name="twitter:card" content="summary" />
-                                    <meta name="twitter:site" content={post.title} />
-                                    <meta name="twitter:creator" content='Anderson "Yagasaki" Marlon' />
-                                    <meta name="twitter:title" content={post.title} />
-                                    <meta name="twitter:description" content={post.description} />
-                                    <meta name="twitter:image:src" content={post.image} />
-                                </Head>
+                                <OwnHead title={title + post.title} description={post.description}
+                                    canonicalUrl={SEO.website + slug} ogTwitterImage={post.image ? post.image : SEO.siteThumbnail} ogType={SEO.ogType} />
 
-                                <img src={post.image}></img>
+                                <img src={post.image} />
                                 <section key={post.id}>
-                                    <p className="block__content">{post.createdAtExtended} | {post.author}</p>
+                                    <p className="block__content">{post.createdAtExtended + ' | ' + post.author}</p>
                                     <h1 className="title__content">{post.title}</h1>
                                     <p className="block__content" style={{ whiteSpace: "pre-wrap" }}>{post.body}</p>
 

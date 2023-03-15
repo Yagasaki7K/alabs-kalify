@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 import colors from './Colors'
+import { screenSize, device } from './Breakpoints'
 
-const SlideDetails = styled.div `
+const SlideDetails = styled.div`
     .keen-slider {
         width: 100%;
         height: 40rem;
 
-        @media (max-width: 1366px) {
+        @media (${device.laptop}) {
             height: 30rem;
         }
 
@@ -29,12 +30,11 @@ const SlideDetails = styled.div `
                 left: 50%;
                 transform: translate(-50%, -50%);
                 text-transform: initial;
-                font-family: 'Poppins', sans-serif;
                 line-height: 40px;
                 text-align: left;
                 width: 58rem;
 
-                @media (max-width: 1366px) {
+                @media (${device.laptop}) {
                     top: 50%;
                 }
 
@@ -49,7 +49,7 @@ const SlideDetails = styled.div `
                     }
 
                     .tag {
-                        padding: 2px 10px;
+                        padding: 2.6px 10px;
                         background: ${colors.blue};
                         font-size: 0.9rem;
                         font-weight: bold;
@@ -89,7 +89,12 @@ const SlideDetails = styled.div `
                     color: ${colors.white};
                     border-left: 5px solid ${colors.blue};
                     padding-left: 10px;
-                    width: 50rem;
+                    max-width: 50rem;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
 
                     a {
                         text-decoration: none;
@@ -98,6 +103,46 @@ const SlideDetails = styled.div `
                 }
             }
         }
+    }
+
+    .keen-slider_navigation {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align:center;
+        height: 3rem;
+        color: ${colors.white};
+        border-bottom: 1px solid ${colors.white};
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(50%);
+        }
+
+        .keen-slider__slide {
+            width: 100%;
+
+            .match {
+                img {
+                    width: 1rem;
+                }
+            }
+        }
+    }
+
+    .keen-slider_csgo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align:center;
     }
 `
 

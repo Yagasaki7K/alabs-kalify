@@ -6,10 +6,11 @@ body {
     margin: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
-    background: #15171b;
-    color: #d3cfc9;
+    background: #282a36;
+    color: #ededed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 a {
@@ -39,3 +40,6 @@ body::-webkit-scrollbar-thumb {
     border: 3px solid #15171b;
     /* creates padding around scroll thumb */
 }
+
+
+
