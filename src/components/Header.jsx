@@ -20,32 +20,34 @@ export default function Header() {
             <div className="navigation">
                 <ul id="ul-menu">
                     <li className="burguer">
-                        <Link><a href="#"><i className="uil uil-bars"></i></a></Link>
+                        <Link href="#"><a><i className="uil uil-bars"></i></a></Link>
                     </li>
                     <span id="item-menu">
                         <li>
-                            <Link><a href="/noticias">Notícias</a></Link>
+                            <Link href="/noticias"><a>Notícias</a></Link>
                         </li>
                         <li>
-                            <Link><a href="/#animes">Animes {`&`} HQ{`'`}s</a></Link>
+                            <Link href="/#animes"><a>Animes {`&`} HQ{`'`}s</a></Link>
                         </li>
                         <li>
-                            <Link><a href="/#animes">Jogos</a></Link>
+                            <Link href="/#animes"><a>Jogos</a></Link>
                         </li>
                         <li>
-                            <Link><a href="/#news">Tecnologia</a></Link>
+                            <Link href="/#news"><a>Tecnologia</a></Link>
                         </li>
                         <li>
-                            <Link>
-                                <a href="https://onigiri-hardcore.blogspot.com/" target="_blank" rel="noreferrer">
+                            <Link href="https://onigiri-hardcore.blogspot.com/" target="_blank" rel="noreferrer">
+                                <a>
                                     OH: Arquivos
                                 </a>
                             </Link>
                         </li>
                         <li>
-                            <a href="https://kalify.vercel.app" target="_blank" rel="noreferrer">
-                                Kalify Inc
-                            </a>
+                            <Link href="https://kalify.vercel.app" target="_blank" rel="noreferrer">
+                                <a>
+                                    Kalify Inc
+                                </a>
+                            </Link>
                         </li>
                     </span>
                 </ul>
