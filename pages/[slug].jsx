@@ -31,6 +31,7 @@ export async function getStaticPaths() {
 // Test using Localhost || Hidde getStaticPaths and getStaticProps and props inside on Post
 // import data from '../server/index.json'
 
+// eslint-disable-next-line react/prop-types
 const Post = ({ data }) => {
     const router = useRouter()
     const { slug } = router.query
@@ -41,6 +42,7 @@ const Post = ({ data }) => {
 
             <SlugDetails>
                 {
+                    // eslint-disable-next-line react/prop-types
                     data && data.map((post, index) => (
                         post.slug === slug ? (
                             <div key={index}>
@@ -72,7 +74,7 @@ const Post = ({ data }) => {
 
                                     {
                                         post.citation != '' ? (
-                                            <a href={post.linkCitation} className="citation" target="_blank">
+                                            <a href={post.linkCitation} className="citation" target="_blank" rel="noreferrer">
                                                 <p className="block__content">“{post.citation}”</p>
                                             </a>
                                         ) : null
@@ -82,7 +84,7 @@ const Post = ({ data }) => {
 
                                     {
                                         post.ytid ?
-                                            <iframe width="550" height="480" src={'https://www.youtube.com/embed/' + post?.ytid} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : null
+                                            <iframe width="550" height="480" src={'https://www.youtube.com/embed/' + post?.ytid} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : null
                                     }
                                 </section>
                             </div>
