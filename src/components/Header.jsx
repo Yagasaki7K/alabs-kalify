@@ -1,57 +1,48 @@
-import Link from 'next/link'
 import HeaderDetails from './HeaderDetails'
 
 export default function Header() {
     return (
         <HeaderDetails>
             <div className="header">
-                <Link>
-                    <a href="/" className="logotipo">
-                        <img src="/logotipo-white.png" className="logotipo" alt="logo" />
-                    </a>
-                </Link>
-                <Link>
-                    <a href="/">
-                        <img src="/anuncio.png" className="advice" alt="Anuncio" />
-                    </a>
-                </Link>
+                <a href="/" className="logotipo">
+                    <img src="/logotipo-white.png" className="logotipo" alt="logo" />
+                </a>
+                <a href="/">
+                    <img src="/anuncio.png" className="advice" alt="Anuncio" />
+                </a>
             </div>
 
             <div className="navigation">
                 <ul id="ul-menu">
                     <li className="burguer">
-                        <Link href="#"><a><i className="uil uil-bars"></i></a></Link>
+                        <a href="#"><i className="uil uil-bars"></i></a>
                     </li>
                     <span id="item-menu">
                         <li>
-                            <Link href="/noticias"><a>Notícias</a></Link>
+                            <a href="/noticias">Notícias</a>
                         </li>
                         <li>
-                            <Link href="/#animes"><a>Animes {`&`} HQ{`'`}s</a></Link>
+                            <a href="/#animes">Animes {`&`} HQ{`'`}s</a>
                         </li>
                         <li>
-                            <Link href="/#animes"><a>Jogos</a></Link>
+                            <a href="/#animes">Jogos</a>
                         </li>
                         <li>
-                            <Link href="/#news"><a>Tecnologia</a></Link>
+                            <a href="/#news">Tecnologia</a>
                         </li>
                         <li>
-                            <Link href="https://onigiri-hardcore.blogspot.com/" target="_blank" rel="noreferrer">
-                                <a>
-                                    OH: Arquivos
-                                </a>
-                            </Link>
+                            <a href="https://onigiri-hardcore.blogspot.com/" target="_blank" rel="noreferrer">
+                                OH: Arquivos
+                            </a>
                         </li>
                         <li>
-                            <Link href="https://kalify.vercel.app" target="_blank" rel="noreferrer">
-                                <a>
-                                    Kalify Inc
-                                </a>
-                            </Link>
+                            <a href="https://kalify.vercel.app" target="_blank" rel="noreferrer">
+                                Kalify Inc
+                            </a>
                         </li>
                     </span>
                 </ul>
             </div>
-        </HeaderDetails >
+        </HeaderDetails>
     )
 }
