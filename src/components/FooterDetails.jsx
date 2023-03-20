@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { colors } from './variables'
 
 const FooterDetails = styled.div`
-
     .imgfooter {
         display: flex;
         justify-content: center;
@@ -27,6 +26,7 @@ const FooterDetails = styled.div`
             color: ${colors.white};
         }
     }
+
 `
 
 export default FooterDetails

@@ -64,7 +64,7 @@ const DashboardDetails = styled.div`
             button {
                 margin-top: 1rem;
                 padding: 0.5rem;
-                border: 1px solid ${colors.white};
+                border: 1px solid ${colors.white}};
                 border-radius: 5px;
                 background: ${colors.blackdark};
                 color: ${colors.white};
@@ -88,7 +88,6 @@ const DashboardDetails = styled.div`
         .stats {
             display: none;
         }
-    }
 `
 
 export default DashboardDetails

@@ -72,7 +72,7 @@ const Post = ({ data }) => {
 
                                     {
                                         post.citation != '' ? (
-                                            <a href={post.linkCitation} className="citation" target="_blank" rel="noreferrer">
+                                            <a href={post.linkCitation} className="citation" target="_blank">
                                                 <p className="block__content">“{post.citation}”</p>
                                             </a>
                                         ) : null
@@ -82,7 +82,7 @@ const Post = ({ data }) => {
 
                                     {
                                         post.ytid ?
-                                            <iframe width="550" height="480" src={'https://www.youtube.com/embed/' + post?.ytid} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : null
+                                            <iframe width="550" height="480" src={'https://www.youtube.com/embed/' + post?.ytid} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : null
                                     }
                                 </section>
                             </div>
