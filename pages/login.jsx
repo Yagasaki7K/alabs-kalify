@@ -113,6 +113,11 @@ const Login = () => {
 
     function getImage(event) {
         setImage(event.target.files[0]);
+
+        const typefile = /(.png)$/i;
+        if(!typefile.exec(setImage)){
+            alert('Formato de arquivo invalido. Apenas arquivos PNG.')
+        }
     }
 
     if (isLogged === true) {
