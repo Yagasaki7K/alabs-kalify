@@ -3,13 +3,12 @@ import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB305sY0GR-z1lnJx2lqnG0kkAr-JR-IeQ",
-  authDomain: "kalify-findyourpet.firebaseapp.com",
-  databaseURL: "https://kalify-findyourpet-default-rtdb.firebaseio.com",
-  projectId: "kalify-findyourpet",
-  storageBucket: "kalify-findyourpet.appspot.com",
-  messagingSenderId: "843679913436",
-  appId: "1:843679913436:web:55e00dc38e1731adbb6b19"
+  apiKey: "AIzaSyCLMSvQ9JX5N_zEZ4-_HJM-RT7oBV9H4KA",
+  authDomain: "onigirihardcore-88090.firebaseapp.com",
+  projectId: "onigirihardcore-88090",
+  storageBucket: "onigirihardcore-88090.appspot.com",
+  messagingSenderId: "831799809088",
+  appId: "1:831799809088:web:05dea243ba8cd249aa7ba5"
 };
 
 const app = initializeApp(firebaseConfig);
