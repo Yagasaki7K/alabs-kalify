@@ -104,7 +104,7 @@ export async function getStaticPaths() {
 export default Post*/
 
 function Post(){
-    const [post, setPost] = useState([])
+    const [Post, setPost] = useState([])
 
     useEffect(()=>{
         getPost()
