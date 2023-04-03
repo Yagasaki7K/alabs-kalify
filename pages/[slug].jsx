@@ -147,7 +147,7 @@ function Post(){
                                     <meta name="twitter:image:src" content={post.image} />
                                 </Head>
 
-                                <img src={post.image}></img>
+                                <img src={post.image ? firebaseURL + post.image + `?alt=media` : null} alt={post?.name}></img>
                                 <section key={post.id}>
                                     <p className="block__content">{post.createdAtExtended} | {post.author}</p>
                                     <h1 className="title__content">{post.title}</h1>
