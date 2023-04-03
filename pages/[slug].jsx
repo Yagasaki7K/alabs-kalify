@@ -124,7 +124,7 @@ function Post(){
             <SlugDetails>
                 {
                     // eslint-disable-next-line react/prop-types
-                    data && data.map((post, index) => (
+                    Post && Post.map((post, index) => (
                         post.slug === slug ? (
                             <div key={index}>
                                 <Head>
