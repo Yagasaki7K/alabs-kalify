@@ -63,19 +63,21 @@ const Post = () => {
                             <div key={index}>
                                 <Head>
                                     <title>{post.title}</title>
-                                    <meta name="author" content='Anderson "Yagasaki" Marlon' />
+                                    <meta name="author" content={post.author} />
+                                    {/* <meta name="author" content='Anderson "Yagasaki" Marlon' /> */}
                                     <meta name="description" content={post.description} />
                                     <meta property="og:title" content={post.title} />
                                     <meta property="og:description" content={post.description} />
-                                    <meta property="og:site_name" content="Anderson Marlon // Software Developer" />
-                                    <meta property="og:url" content="https://yagasaki.vercel.app/" />
+                                    <meta property="og:site_name" content="Onigiri Hardcore" />
+                                    <meta property="og:url" content="https://onigirihardcore.vercel.app/" />
                                     <meta property="og:image" content={post.image} />
                                     <meta property="og:type" content="Website" />
                                     <meta property="og:image:width" content="1200" />
                                     <meta property="og:image:height" content="627" />
                                     <meta name="twitter:card" content="summary" />
                                     <meta name="twitter:site" content={post.title} />
-                                    <meta name="twitter:creator" content='Anderson "Yagasaki" Marlon' />
+                                    <meta name="twitter:creator" content={post.author} />
+                                    {/* <meta name="twitter:creator" content='Anderson "Yagasaki" Marlon' /> */}
                                     <meta name="twitter:title" content={post.title} />
                                     <meta name="twitter:description" content={post.description} />
                                     <meta name="twitter:image:src" content={post.image} />

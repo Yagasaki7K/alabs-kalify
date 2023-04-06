@@ -1,14 +1,30 @@
-import React from 'react'
-import post from '../../server/index.json'
+import React, { useEffect, useState } from 'react'
+// import post from '../../server/index.json'
 
 import SlideDetails from './SlideDetails'
 import 'keen-slider/keen-slider.min.css'
 
 import { useKeenSlider } from 'keen-slider/react'
+import postService from '../../services/post.service'
 
-const posts = post.sort().reverse().slice(0, 3)
+
 
 const Slide = () => {
+
+    const [Posts, setPosts] = useState([])
+
+    useEffect(() => {
+        getPosts()
+    }, [])
+
+    const getPosts = async () => {
+        const data = await postService.getAllPosts()
+        setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    }
+
+    const firebaseURL = 'https://firebasestorage.googleapis.com/v0/b/onigirihardcore-88090.appspot.com/o/files%2F'
+
+    const posts = Posts.sort().reverse().slice(0, 3)
 
     const [refCallback] = useKeenSlider({ loop: true },
         [
@@ -46,26 +62,29 @@ const Slide = () => {
     return (
         <SlideDetails>
             <div ref={refCallback} className="keen-slider">
-                { posts && posts.map(post => (
-                <div className="keen-slider__slide" key={post?.id}>
-                    <a href={post?.slug}>
-                        <img src={post?.image} alt={post?.title}/>
-                    </a>
-                    <div className="slider-description">
-                        <div className="slide-tag">
-                            <span className="latest">HOT NEWS 🔥</span>
-                            {/* <span className="tag">{posts?.category.title}</span> */}
-                            <span className="date">{post?.createdAt}</span>
-                            <span> - </span>
-                            <span className="author">
-                                <a href="https://yagasaki.vercel.app/" target="_blank" rel="noreferrer">Anderson Marlon</a>
-                            </span>
-                        </div>
+                {posts && posts.map(post => (
+                    <div className="keen-slider__slide" key={post?.id}>
+                        <a href={post?.slug}>
+                            <img src={post.image ? firebaseURL + post.image + `?alt=media` : null} alt={post?.name} />
+                            {/* <img src={post?.image} alt={post?.title}/> */}
+                        </a>
+                        <div className="slider-description">
+                            <div className="slide-tag">
+                                <span className="latest">HOT NEWS 🔥</span>
+                                {/* <span className="tag">{posts?.category.title}</span> */}
+                                <span className="date">{post?.lessDate}</span>
+                                {/* <span className="date">{post?.createdAt}</span> */}
+                                <span> - </span>
+                                <span className="author">
+                                    <a href="#">{post.author}</a>
+                                    {/* <a href="https://yagasaki.vercel.app/" target="_blank" rel="noreferrer">Anderson Marlon</a> */}
+                                </span>
+                            </div>
 
-                        <a href={post?.slug}><h1>{post?.title}</h1></a>
-                        <p>{post?.description}</p>
+                            <a href={post?.slug}><h1>{post?.title}</h1></a>
+                            <p>{post?.description}</p>
                         </div>
-                </div>
+                    </div>
                 ))}
             </div>
         </SlideDetails>
