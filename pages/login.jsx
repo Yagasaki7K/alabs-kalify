@@ -18,9 +18,14 @@ const MarkdownEditor = dynamic(
 );
 
 const Login = () => {
+    const [lessDate, setLessDate] = useState('')
+    const [moreDate, setMoreDate] = useState('')
+    const [slug, setSlug] = useState('')
+
     const [author, setAuthor] = useState('')
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    const [categories, setCategories] = useState('')
     const [image, setImage] = useState('')
     const [citation, setCitation] = useState('')
     const [linkCitation, setLinkCitation] = useState('')
@@ -42,11 +47,15 @@ const Login = () => {
         }
     }
 
-    async function sendData(){
+    async function sendData() {
         const NewPosts = {
+            lessDate,
+            moreDate,
+            slug,
             author,
             title,
             description,
+            categories,
             bodyPost,
             image: image.name,
             citation,
@@ -54,9 +63,9 @@ const Login = () => {
             ytid,
         }
 
-            if (!author || !title || !description || !image) {
-                alert('Por favor, preencha todos os campos')
-            } else {
+        if (!author || !title || !description || !image || !categories) {
+            alert('Por favor, preencha todos os campos')
+        } else {
             await (postService.addPost(NewPosts))
 
             const storageRef = ref(storage, `/files/${Image.name}`)
@@ -73,42 +82,67 @@ const Login = () => {
                 },
                 (error) => console.log(error),
                 () => {
-                    getDownloadURL(uploadTask.snapshot.ref).then((url) =>{
+                    getDownloadURL(uploadTask.snapshot.ref).then((url) => {
                         console.log(url)
                     })
                 }
             )
 
-                alert('Publicação criada com sucesso')
-                location.assign("/posts")
-            }
+            alert('Publicação criada com sucesso')
+            location.assign("/")
+        }
     }
 
+    function TitleToSlug() {
+
+        let title = document.getElementById('title').value;
+
+        let slug = title.toLowerCase().replace(/ /g, '-')
+            .replace(/[^\w-]+/g, '');
+
+        setSlug(slug)
+    }
 
     function collectData() {
-        const formAuthor = document.getElementById('author')
-        const resultAuthor = formAuthor.options[formAuthor.selectedIndex].text
-        setAuthor(resultAuthor)
+        const date = new Date()
+        const day = date.getDate()
+        const month = date.getMonth() + 1
+        const year = date.getFullYear()
 
-        const formTitle = document.getElementById('title')
-        const resultTitle = formTitle.value
-        setTitle(resultTitle)
+        const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+        ];
 
-        const formDescription = document.getElementById('description')
-        const resultDescription = formDescription.value
-        setDescription(resultDescription)
+        const resultDate = `${day}/${month}/${year}`
+        const resultMoreDate = `${day} de ${monthNames[date.getMonth()]} de ${year + 1}`
+        setLessDate(resultDate)
+        setMoreDate(resultMoreDate)
 
-        const formCitation = document.getElementById('citation')
-        const resultCitation = formCitation.value
-        setCitation(resultCitation)
+        //
 
-        const formLinkCitation = document.getElementById('linkcitation')
-        const resultLinkCitation = formLinkCitation.value
-        setLinkCitation(resultLinkCitation)
+        const formAuthor = document.getElementById('author').value
+        setAuthor(formAuthor)
 
-        const formYtid = document.getElementById('ytid')
-        const resultYtid = formYtid.value
-        setYtid(resultYtid)
+        const formTitle = document.getElementById('title').value
+        setTitle(formTitle)
+
+        const formDescription = document.getElementById('description').value
+        setDescription(formDescription)
+
+        const formCategories = document.getElementById('categories')
+        const resultCategories = formCategories.options[formCategories.selectedIndex].text
+        setCategories(resultCategories)
+
+        const formCitation = document.getElementById('citation').value
+        setCitation(formCitation)
+
+        const formLinkCitation = document.getElementById('linkcitation').value
+        setLinkCitation(formLinkCitation)
+
+        const formYtid = document.getElementById('ytid').value
+        setYtid(formYtid)
+
+        TitleToSlug()
     }
 
     function getImage(event) {
@@ -143,6 +177,15 @@ const Login = () => {
                                     <label htmlFor="description">Descrição da Publicação*: </label>
                                     <textarea name="description" id="description" maxLength={126}
                                         placeholder="Descrição da Publicação (Max.126)" required />
+                                </div>
+
+                                <div className="item">
+                                    <label htmlFor="categories">Categoria da Publicação*: </label>
+                                    <select id="categories">
+                                        <option value={"Animes"}>Animes</option>
+                                        <option value={"Games"}>Games</option>
+                                        <option value={"Movies"}>Movies/Séries</option>
+                                    </select>
                                 </div>
 
                                 <div className="item">
@@ -197,7 +240,8 @@ const Login = () => {
                     </form>
                 </div>
             </LoginDetails>
-        )}
+        )
     }
+}
 
 export default Login
