@@ -13,7 +13,7 @@ const SideMenu = () => {
                 <ul>
                     <Link href="#publi">
                         <li>
-                            <i className="uil uil-file-edit-alt" /> Publicações
+                            <i className="uil uil-file-edit-alt" /> Criar Publicações
                         </li>
                     </Link>
                     {/* <Link href="#stats">

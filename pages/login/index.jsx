@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import SideMenu from '../src/components/Login/SideMenu'
-import LoginDetails from "../src/components/LoginDetails"
-import DashboardDetails from "../src/components/DashboardDetails"
-import postService from '../services/post.service'
-import { storage } from '../client'
+import SideMenu from '../../src/components/Login/SideMenu'
+import LoginDetails from "../../src/components/LoginDetails"
+import DashboardDetails from "../../src/components/DashboardDetails"
+import postService from '../../services/post.service'
+import { storage } from '../../client'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import dynamic from "next/dynamic"
 import "@uiw/react-md-editor/markdown-editor.css"
@@ -223,6 +223,8 @@ const Login = () => {
                         <h1>Estatísticas Gerais</h1>
                     </div>
                 </div>
+
+
             </DashboardDetails>
         )
     } else {

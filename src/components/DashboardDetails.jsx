@@ -46,7 +46,7 @@ const DashboardDetails = styled.div`
             .item-markdown {
                 display: flex;
                 flex-direction: column;
-                width: 80%;
+                width: 50%;
                 margin-top: 1rem;
 
                 label {
@@ -64,12 +64,19 @@ const DashboardDetails = styled.div`
             button {
                 margin-top: 1rem;
                 padding: 0.5rem;
-                border: 1px solid ${colors.white}};
+                border: 1px solid ${colors.white};
                 border-radius: 5px;
                 background: ${colors.blackdark};
                 color: ${colors.white};
                 cursor: pointer;
                 margin-right: 1rem;
+                font-size: 0.8rem;
+
+                &:hover {
+                    background: ${colors.white};
+                    color: ${colors.blackdark};
+                    transition: 1s;
+                }
             }
 
             .sendbtn {
@@ -79,7 +86,7 @@ const DashboardDetails = styled.div`
             }
 
             .clrbtn {
-                background: ${colors.red};
+                background: ${colors.yellow};
                 border: none;
                 padding: 0.8rem;
             }
@@ -88,6 +95,7 @@ const DashboardDetails = styled.div`
         .stats {
             display: none;
         }
+    }
 `
 
 export default DashboardDetails
