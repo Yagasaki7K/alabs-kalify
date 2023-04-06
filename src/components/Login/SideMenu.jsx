@@ -5,7 +5,7 @@ import SideMenuDetails from './SideMenuDetails'
 const SideMenu = () => {
     return (
         <SideMenuDetails>
-            <Link href="/backoffice/login">
+            <Link href="/">
                 <img src="/logotipo-white.png" alt="logo" />
             </Link>
 

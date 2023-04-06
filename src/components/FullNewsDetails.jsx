@@ -22,11 +22,6 @@ const FullNewsDetails = styled.div`
             border: none;
             margin-bottom: 2rem;
             cursor: pointer;
-
-            :hover {
-                transition: 1s;
-                transform: scale(1.05);
-            }
         }
 
         @media (${device.laptopM}) {
@@ -42,6 +37,8 @@ const FullNewsDetails = styled.div`
                 transition: 1s;
                 transform: scale(1.05);
                 background: ${colors.blacklight};
+                transition: 1s;
+                transform: scale(1.05);
             }
 
             img {
