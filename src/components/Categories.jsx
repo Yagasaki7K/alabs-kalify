@@ -43,7 +43,7 @@ const Categories = () => {
                     firstAnime && firstAnime.map(post => (
                         post.categories === 'Animes' ? (
                             <a href={post.slug} key={post.id}>
-                                <img src={post.image ? firebaseURL + post.image + `?alt=media` : ''} alt={post?.name} />
+                                <img src={post.image ? firebaseURL + post.image + `?alt=media&token=b1494fd3-9062-403a-bd4e-34375cc56ea7` : ''} alt={post?.name} />
                                 {/* <img src={post.image} alt={post.title} /> */}
                                 <h1>{post.title}</h1>
                                 {/* <h1>{post.smalltitle}</h1> */}

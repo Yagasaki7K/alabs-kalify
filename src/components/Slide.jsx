@@ -65,7 +65,7 @@ const Slide = () => {
                 {posts && posts.map(post => (
                     <div className="keen-slider__slide" key={post?.id}>
                         <a href={post?.slug}>
-                            <img src={post.image ? firebaseURL + post.image + `?alt=media` : null} alt={post?.name} />
+                            <img src={post.image ? firebaseURL + post.image + `?alt=media&token=b1494fd3-9062-403a-bd4e-34375cc56ea7` : null} alt={post?.name} />
                             {/* <img src={post?.image} alt={post?.title}/> */}
                         </a>
                         <div className="slider-description">
