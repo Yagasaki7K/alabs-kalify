@@ -68,7 +68,7 @@ const Login = () => {
         } else {
             await (postService.addPost(NewPosts))
 
-            const storageRef = ref(storage, `gs://onigirihardcore-88090.appspot.com/files/${image.name}`)
+            const storageRef = ref(storage, `/files/${image.name}`)
             const uploadTask = uploadBytesResumable(storageRef, Image)
 
             uploadTask.on(
