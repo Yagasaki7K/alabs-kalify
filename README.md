@@ -1,89 +1,36 @@
-<p align="center">
-   <img src="https://onigirihardcore.vercel.app/logotipo-white.png" width="600"/>
-</p>
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-<p align="center">
-   <a href="https://www.linkedin.com/in/andersonmarlon/">
-      <img alt="AndersonMarlon" src="https://img.shields.io/badge/-AndersonMarlon-00acff?style=flat&logo=Linkedin&logoColor=white" />
-   </a>
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Yagasaki7K/website-onigirihardcore?color=00acff">
+## Getting Started
 
-  <a href="https://github.com/Yagasaki7K/website-onigirihardcore/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Yagasaki7K/website-onigirihardcore?color=00acff">
-  </a>
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-00acff">
-  <img alt="GitHub Pull Requests" src="https://img.shields.io/github/issues-pr/Yagasaki7K/website-onigirihardcore?color=00acff" />
-  <a href="https://github.com/Yagasaki7K/website-onigirihardcore/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/Yagasaki7K/website-onigirihardcore?color=00acff&logo=github">
-  </a>
-</p>
-
-<div align="center">
-  <sub>Onigiri Hardcore. Built with 💙 by
-    <a href="https://github.com/Yagasaki7K">Anderson "Yagasaki" Marlon</a> and
-    <a href="https://github.com/Yagasaki7K/website-onigirihardcore/graphs/contributors">
-      contributors
-    </a>
-  </sub>
-</div>
-
-# 📌 Table of Contents
-
-* [Demo Website](#eyes-demo-website)
-* [Technologies](#computer-technologies)
-* [Features](#rocket-features)
-* [Found a bug? Missing a specific feature?](#bug-issues)
-* [Contributing](#tada-contributing)
-* [License](#closed_book-license)
-
-# 👀 Demo Website
-
-👉  Demo: https://webonigirihardcore.com.br/
-
-# 💻 Technologies
-
-This project was made using the follow technologies:
-
-* ReactJS
-* NextJS
-* Javascript
-* JSON
-* Styled Components
-
-# 🚀 Features
-
-News website about games, video games, movies, series, technology and more...
-
-# 🚧 How to run
+First, run the development server:
 
 ```bash
-# Clone Repository
-$ git clone https://github.com/Yagasaki7K/website-onigirihardcore.git
-$ Go to folder using terminal
-$ yarn (needs yarn installed)
-$ yarn dev (if you wanna change something) // yarn start (just to see running)
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
 
-If you want something, wait for `yarn build` to be obeyed, and after that open a little change decision!
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-# 🐛 Issues
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-Feel free to **file a new issue** with a respective title and description on the [Onigiri Hardcore](https://github.com/Yagasaki7K/website-onigirihardcore/issues) repository. If you already found a solution to your problem, **i would love to review your pull request**!
+[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.js`.
 
-# 🎉 Contributing
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-First of all, thank you for being interested in helping out, your time is always appreciated in every way. :100:
+## Learn More
 
-Here's some tips:
+To learn more about Next.js, take a look at the following resources:
 
-* Check the [issues page](https://github.com/Yagasaki7K/website-onigirihardcore/issues) for already opened issues (or maybe even closed ones) that might already address your question/bug/feature request.
-* Feature requests are welcomed! Provide some details on why it would be helpful for you and others, explain how you're using bull-board and if possible even some screenshots if you are willing to mock something!
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Check out the [contributing](./CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-# 📕 License
+## Deploy on Vercel
 
-Released in 2013
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Made by [Anderson Marlon](https://github.com/Yagasaki7K).
-This project is under the [MIT license](./LICENSE).
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
