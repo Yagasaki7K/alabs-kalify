@@ -49,8 +49,6 @@ const Post = () => {
         setPost(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     }
 
-    const firebaseURL = 'https://firebasestorage.googleapis.com/v0/b/onigirihardcore-88090.appspot.com/o/files%2F'
-
     return (
         <>
             <Header />
@@ -84,7 +82,7 @@ const Post = () => {
                                 </Head>
 
                                 {/* <img src={post.image}></img> */}
-                                <img src={post.image ? firebaseURL + post.image + `?alt=media` : null} alt={post?.name}></img>
+                                <img src={post.imageUrl} alt={post?.name}></img>
                                 <section key={post.id}>
                                     <p className="block__content">{post.moreDate} | {post.author}</p>
                                     {/* <p className="block__content">{post.createdAtExtended} | {post.author}</p> */}

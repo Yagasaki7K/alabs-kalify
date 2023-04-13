@@ -15,8 +15,6 @@ const LastNews = () => {
         setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     }
 
-    const firebaseURL = 'https://firebasestorage.googleapis.com/v0/b/onigirihardcore-88090.appspot.com/o/files%2F'
-
     return (
         <LastNewsDetails>
             <div className="tecnologies" id="news">
@@ -28,7 +26,7 @@ const LastNews = () => {
                     {
                         Posts.slice(0, 4).map((post, index) => (
                             <a href={post.slug} key={index}>
-                                <img src={post.image ? firebaseURL + post.image + `?alt=media` : null} alt={post?.name} />
+                                <img src={post.imageUrl} alt={post?.name} />
                                 {/* <img src={post.image} alt={post.title} title={post.title} /> */}
 
                                 <div className="title">
@@ -46,7 +44,7 @@ const LastNews = () => {
                     {
                         Posts.slice(4, 8).map((post, index) => (
                             <a href={post.slug} key={index}>
-                                <img src={post.image ? firebaseURL + post.image + `?alt=media` : null} alt={post?.name} />
+                                <img src={post.imageUrl} alt={post?.name} />
                                 {/* <img src={post.image} alt={post.title} title={post.title} /> */}
 
                                 <div className="title">
@@ -64,8 +62,8 @@ const LastNews = () => {
                     {
                         Posts.slice(8, 12).map((post, index) => (
                             <a href={post.slug} key={index}>
-                                <img src={post.image ? firebaseURL + post.image + `?alt=media` : null} alt={post?.name} />
-                                <img src={post.image} alt={post.title} title={post.title} />
+                                <img src={post.imageUrl} alt={post?.name} />
+                                <img src={post.imageUrl} alt={post.title} title={post.title} />
 
                                 <div className="title">
                                     <h1>{post.title}</h1>

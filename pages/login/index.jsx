@@ -27,6 +27,7 @@ const Login = () => {
     const [description, setDescription] = useState('')
     const [categories, setCategories] = useState('')
     const [image, setImage] = useState('')
+    const [url, setUrl] = useState('')
     const [citation, setCitation] = useState('')
     const [linkCitation, setLinkCitation] = useState('')
     const [ytid, setYtid] = useState('')
@@ -57,36 +58,17 @@ const Login = () => {
             description,
             categories,
             bodyPost,
-            image: image.name,
+            image,
+            imageUrl: url,
             citation,
             linkCitation,
             ytid,
         }
 
-        if (!author || !title || !description || !image || !categories) {
+        if (!author || !title || !description || !url || !categories) {
             alert('Por favor, preencha todos os campos')
         } else {
             await (postService.addPost(NewPosts))
-
-            const storageRef = ref(storage, `/files/${image.name}`)
-            const uploadTask = uploadBytesResumable(storageRef, Image)
-
-            uploadTask.on(
-                "state_changed",
-                (snapshot) => {
-                    const percent = Math.round(
-                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                    )
-                    console.log(percent)
-                    /* show upload percentage? */
-                },
-                (error) => console.log(error),
-                () => {
-                    getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                        console.log(url)
-                    })
-                }
-            )
 
             alert('Publicação criada com sucesso')
             location.assign("/")
@@ -146,7 +128,31 @@ const Login = () => {
     }
 
     function getImage(event) {
-        setImage(event.target.files[0]);
+        const file = event.target.files[0]
+
+        if(!file) return
+
+        setImage(file.name)
+
+        const storageRef = ref(storage, `/images/${file.name}`)
+        const uploadTask = uploadBytesResumable(storageRef, file)
+
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const percent = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                )
+                console.log(percent)
+                /* show upload percentage? */
+            },
+            (error) => console.log(error),
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then(url => {
+                    setUrl(url)
+                })
+            }
+        )
     }
 
     if (isLogged === true) {
@@ -213,8 +219,8 @@ const Login = () => {
                                     <input name="ytid" id="ytid" placeholder="RfiKg_Sfg-o" />
                                 </div>
 
-                                <button onClick={sendData} className="sendbtn">Enviar</button>
-                                <button className="clrbtn">Limpar</button>
+                                <button onClick={sendData} className='sendbtn'>Enviar</button>
+                                <button className='clrbtn'>Limpar</button>
                             </form>
                         </div>
                     </div>

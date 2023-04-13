@@ -30,8 +30,6 @@ const Categories = () => {
     let firstMovies = moviesContent.slice(0, 1)
     let lastMovies = moviesContent.slice(1, 4)
 
-    const firebaseURL = 'https://firebasestorage.googleapis.com/v0/b/onigirihardcore-88090.appspot.com/o/files%2F'
-
     return (
         <CategoriesDetails>
             <div className="firstCategories" id="animes">
@@ -43,7 +41,7 @@ const Categories = () => {
                     firstAnime && firstAnime.map(post => (
                         post.categories === 'Animes' ? (
                             <a href={post.slug} key={post.id}>
-                                <img src={post.image ? firebaseURL + post.image + `?alt=media&token=b1494fd3-9062-403a-bd4e-34375cc56ea7` : ''} alt={post?.name} />
+                                <img src={post.imageUrl} alt={post?.name} />
                                 {/* <img src={post.image} alt={post.title} /> */}
                                 <h1>{post.title}</h1>
                                 {/* <h1>{post.smalltitle}</h1> */}
@@ -66,7 +64,7 @@ const Categories = () => {
                             post.categories === 'Animes' ? (
                                 <div className="post" key={post.id}>
                                     <a href={post.slug} >
-                                        <img src={post.image ? firebaseURL + post.image + `?alt=media` : ''} alt={post?.name} />
+                                        <img src={post.imageUrl} alt={post?.name} />
                                         {/* <img src={post.image} alt={post.title} /> */}
 
                                         <div className="post-side">
@@ -95,7 +93,7 @@ const Categories = () => {
                     firstGames && firstGames.map(post => (
                         post.categories === 'Games' ? (
                             <a href={post.slug} key={post.id}>
-                                <img src={post.image ? firebaseURL + post.image + `?alt=media` : ''} alt={post?.name} />
+                                <img src={post.imageUrl} alt={post?.name} />
                                 {/* <img src={post.image} alt={post.title} /> */}
                                 <h1>{post.title}</h1>
                                 {/* <h1>{post.smalltitle}</h1> */}
@@ -118,7 +116,7 @@ const Categories = () => {
                             post.categories === 'Games' ? (
                                 <div className="post" key={post.id}>
                                     <a href={post.slug} >
-                                        <img src={post.image} alt={post.title} />
+                                        <img src={post.imageUrl} alt={post.title} />
 
                                         <div className="post-side">
                                             <h3>{post.title}</h3>
@@ -146,7 +144,7 @@ const Categories = () => {
                     firstMovies && firstMovies.map(post => (
                         post.categories === 'Movies' ? (
                             <a href={post.slug} key={post.id}>
-                                <img src={post.image} alt={post.title} />
+                                <img src={post.imageUrl} alt={post.title} />
                                 <h1>{post.title}</h1>
                                 {/* <h1>{post.smalltitle}</h1> */}
 
@@ -168,7 +166,7 @@ const Categories = () => {
                             post.categories === 'Movies' ? (
                                 <div className="post" key={post.id}>
                                     <a href={post.slug} >
-                                        <img src={post.image} alt={post.title} />
+                                        <img src={post.imageUrl} alt={post.title} />
 
                                         <div className="post-side">
                                             <h3>{post.title}</h3>
